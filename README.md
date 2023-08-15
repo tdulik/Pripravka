@@ -156,6 +156,7 @@ f neni mensi nez f+1
 Počítač počítá správně, ale pokud máme v exponentu 16, double obsahující velké číslo řádu 10^16 nemůžeme inkrementovat o hodnotu 1. Zkuste v tomto příkladu přičíst větší číslo - např. 100, budete mít větší úspěch. Přesto výsledek nebude přesně 10^16 + 100, ale nejbližší možná aproximace. 
 
 Důvod? Reprezentace floating point-u v počítači je MANTISA * 2^EXPONENT, kde MANTISA i EXPONENT mají omezený počet bitů. Kvůli tomu hodnota floating point proměnné nemůže být přesně ta hodnota, kterou my požadujeme, ale pouze aproximace žádané hodnoty. Velikost chyby mezi žádanou a uloženou hodnotou je pak úměrná velikosti výrazu 2^EXPONENT.
+
 ## Zobrazení integer čísla v paměti počítače ve dvojkové soustavě
 Proměnné typu ```int``` jsou v paměti počítače uloženy jak skupina 32 jedniček a nul, které si můžeme zobrazit např. tímto kódem:
 ```c
@@ -172,3 +173,24 @@ Proměnné typu ```int``` jsou v paměti počítače uloženy jak skupina 32 jed
     }
     printf("\n");
 ```
+
+## Příklad: řešení 1 rovnice o 2 neznámých 
+Řešení rovnice ax + by = 0 je funkce  y=-a*x/b , jejíž hodnoty můžeme generovat ve smyčce pro měnící se x. Výsledek můžeme tisknout do formátu CSV, který lze otevřít v Excelu, např. takto:
+```program.exe > data.csv```
+
+```c
+    double a = 0.0;
+    double b = 0.0;
+    double x = 0.0;
+    double y = 0.0;
+    printf("define a:");
+    scanf_s("%lf", &a);
+    printf("define b:");
+    scanf_s("%lf", &b);
+    while (x <= 100) {
+        y = sqrt((a * x) / b);
+        printf("%lf\t%lf\n", x, y);
+        x++;
+    }
+```
+    
