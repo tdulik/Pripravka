@@ -99,10 +99,10 @@ Poznámky
 
 ## Velikost a rozsah typů int a float/double
 
-- Standard C nespecifikuje rozsahy jednotlivých podtypů ```int```. Standard C specifikuje rozsah int typů pouze takto:
-  char <= short int <= int <= long int <= long long int
+- Standard C nespecifikuje rozsahy jednotlivých podtypů ```int```. Standard C specifikuje rozsah ```int``` typů pouze takto:
+  ```char <= short int <= int <= long int <= long long int```
 
-Velikosti jakéhokoli typu si můžete vypsat pomocí operace sizeof, u int typů např. takto:
+Velikosti jakéhokoli typu si můžete vypsat pomocí operace ```sizeof```, u ```int``` typů např. takto:
 ```c
     printf("Velikost char=%d\n", sizeof (char));
     printf("Velikost short int=%d\n", sizeof (short int));
@@ -115,7 +115,7 @@ Z těchto údajů si můžete rozsahy daného typu vypočítat, např.:
 ```c
     printf("Rozsah unsigned char=0..%d\n", (1<< (8*sizeof (char)))-1);
 ```
-popř. využít konstant v limits.h:
+popř. využít konstant v ```limits.h```:
 
 ```c
 	#include <limits.h>
@@ -129,7 +129,7 @@ popř. využít konstant v limits.h:
     printf("z = %d\n", z); // chyba - kvůli přetečení, místo (+)128 vytiskne -128 !!!
 
 ```
-Jak tomu zabránit? Můžeme použít typ int s větším rozsahem: v případě x typ long long int, v případě z např. unsigned char:
+Jak tomu zabránit? Můžeme použít typ ```int``` s větším rozsahem: v případě ```x``` typ ```long long int```, v případě ```z``` např. ```unsigned char```:
 ```c
     long long int x = 2147483648L;
     unsigned char z = 128;
