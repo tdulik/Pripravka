@@ -152,3 +152,7 @@ f=10000000000000000.000000
 f neni mensi nez f+1
 ```
 Čím to je? Počítá snad náš počítač chybně?
+
+Počítač počítá správně, ale pokud máme v exponentu 16, double obsahující velké číslo řádu 10^16 nemůžeme inkrementovat o hodnotu 1. Zkuste v tomto příkladu přičíst větší číslo - např. 100, budete mít větší úspěch. Přesto výsledek nebude přesně 10^16 + 100, ale nejbližší možná aproximace. 
+
+Důvod? Reprezentace floating point-u v počítači je MANTISA * 2^EXPONENT, kde MANTISA i EXPONENT mají omezený počet bitů. Kvůli tomu hodnota floating point proměnné nemůže být přesně ta hodnota, kterou my požadujeme, ale pouze aproximace žádané hodnoty. Velikost chyby mezi žádanou a uloženou hodnotou je pak úměrná velikosti výrazu 2^EXPONENT.
