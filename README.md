@@ -96,7 +96,7 @@ Domácí úkoly
 Poznámky
 
 - UNIX -> LINUX
-
+# 2. den
 ## Velikost a rozsah typů int a float/double
 
 - Standard C nespecifikuje rozsahy jednotlivých podtypů ```int```. Standard C specifikuje rozsah ```int``` typů pouze takto:
@@ -156,3 +156,19 @@ f neni mensi nez f+1
 Počítač počítá správně, ale pokud máme v exponentu 16, double obsahující velké číslo řádu 10^16 nemůžeme inkrementovat o hodnotu 1. Zkuste v tomto příkladu přičíst větší číslo - např. 100, budete mít větší úspěch. Přesto výsledek nebude přesně 10^16 + 100, ale nejbližší možná aproximace. 
 
 Důvod? Reprezentace floating point-u v počítači je MANTISA * 2^EXPONENT, kde MANTISA i EXPONENT mají omezený počet bitů. Kvůli tomu hodnota floating point proměnné nemůže být přesně ta hodnota, kterou my požadujeme, ale pouze aproximace žádané hodnoty. Velikost chyby mezi žádanou a uloženou hodnotou je pak úměrná velikosti výrazu 2^EXPONENT.
+## Zobrazení integer čísla v paměti počítače ve dvojkové soustavě
+Proměnné typu ```int``` jsou v paměti počítače uloženy jak skupina 32 jedniček a nul, které si můžeme zobrazit např. tímto kódem:
+```c
+    int cislo = 9847;
+    int zbytek;
+    int pocet = 1;
+    while (cislo > 0) {
+        zbytek = cislo % 2;
+        cislo = cislo / 2; 
+        //printf("%d.cifra:%d\n", pocet++, zbytek);
+        printf("%d", zbytek);
+
+        pocet = pocet + 1; //pocet++; nebo pocet+=1;
+    }
+    printf("\n");
+```
