@@ -129,8 +129,10 @@ popř. využít konstant v limits.h:
     printf("z = %d\n", z); // chyba - kvůli přetečení, místo (+)128 vytiskne -128 !!!
 
 ```
-Jak tomu zabránit? Můžeme použít typ int s větším rozsahem: long long int
+Jak tomu zabránit? Můžeme použít typ int s větším rozsahem: v případě x typ long long int, v případě z např. unsigned char:
 ```c
-    long long int x = 2147483648L; 
-    printf("2^32 = %lld\n", x);
+    long long int x = 2147483648L;
+    unsigned char z = 128;
+    printf("2^31 = %lld\n", x);
+    printf("z = %d\n", z);
 ```
