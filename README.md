@@ -194,3 +194,8 @@ Proměnné typu ```int``` jsou v paměti počítače uloženy jak skupina 32 jed
     }
 ```
     
+---
+Domácí úkoly
+
+Vytvořte program pro výpočet kořenů kvadratické rovnice X1,2= (-b +- sqrt(D)) / 2*a
+kde D=-4*a*c
