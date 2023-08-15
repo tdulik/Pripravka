@@ -43,7 +43,7 @@ Proměnná je pojmenovaná hodnota v paměti.
 ## Základní typy a aritmetické operace
 
 - Typ ```int``` reprezenuje celé číslo se znaménkem, v jazyce C má minimálně dva bajty.
-- Typ ```double``` reprezentuje číslo s desetinnou čárkou (spíše plovoucí řádková čárka, anglicky floating-point, typicky s binárním exponentem) a se znaménkem. Typycky zabíra 8 bajtů.
+- Typ ```double``` reprezentuje číslo s desetinnou čárkou (spíše plovoucí řádková čárka, anglicky floating-point, typicky s binárním exponentem) a se znaménkem. Typicky zabíra 8 bajtů.
   
 Výraz ```1 / 3``` vrací hodnotu ```0``` protože oba operandy jsou celá čísla, operace dělení je v tomto případě celočíselná.
 Naproti tomu výrazy ```1 / 3.0```, ```1.0 / 3``` nebo ```1.0 / 3.0``` vrací číslo s desetinnou čárkou, protože alespoň jeden z operandů je číslo s desetinnou čárkou.
@@ -97,4 +97,27 @@ Poznámky
 
 - UNIX -> LINUX
 
+## SW/HW omezení typů int a float/double
 
+- Standard C nespecifikuje rozsahy jednotlivých podtypů ```int```. Standard C specifikuje rozsah int typů pouze takto:
+  char <= short int <= int <= long int <= long long int
+
+Velikosti jakéhokoli typu si můžete vypsat pomocí operace sizeof, u int typů např. takto:
+```c
+    printf("Velikost char=%d\n", sizeof (char));
+    printf("Velikost short int=%d\n", sizeof (short int));
+    printf("Velikost int=%d\n", sizeof (int));
+    printf("Velikost long int=%d\n", sizeof (long int));
+    printf("Velikost long long int=%d\n", sizeof (long long int));
+```
+Z těchto údajů si můžete rozsahy daného typu vypočítat, např.:
+
+```c
+    printf("Rozsah unsigned char=0..%d\n", (1<< (8*sizeof (char)))-1);
+```
+popř. využít konstant v limits.h:
+
+#include <limits.h>
+```c
+    printf("Rozsah unsigned char=0..%d\n", UCHAR_MAX);
+```
