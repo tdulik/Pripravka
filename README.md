@@ -121,7 +121,7 @@ popř. využít konstant v ```limits.h```:
 	#include <limits.h>
 	printf("Rozsah unsigned char=0..%d\n", UCHAR_MAX);
 ```
-## Přetečení typů int
+## Problém přetečení typů int
 ```c
     int x = 2147483648; //1<<31;
     char z = 128;
@@ -136,3 +136,19 @@ Jak tomu zabránit? Můžeme použít typ ```int``` s větším rozsahem: v př�
     printf("2^31 = %lld\n", x);
     printf("z = %d\n", z);
 ```
+## Problém (ne)přesnosti typů float a double
+```c
+    double f = 1.0e16;
+    printf("f=%lf\n", f);
+    printf("f=%lf\n", f + 1);
+    if (f < f + 1)
+        printf("f < f+1\n");
+    else printf("f neni mensi nez f+1\n");
+```
+Tento kód vypíše:
+```
+f=10000000000000000.000000
+f=10000000000000000.000000
+f neni mensi nez f+1
+```
+Čím to je? Počítá snad náš počítač chybně?
