@@ -117,7 +117,7 @@ Z těchto údajů si můžete rozsahy daného typu vypočítat, např.:
 ```
 popř. využít konstant v limits.h:
 
-#include <limits.h>
 ```c
-    printf("Rozsah unsigned char=0..%d\n", UCHAR_MAX);
+	#include <limits.h>
+	printf("Rozsah unsigned char=0..%d\n", UCHAR_MAX);
 ```
