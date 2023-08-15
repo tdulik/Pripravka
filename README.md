@@ -97,7 +97,7 @@ Poznámky
 
 - UNIX -> LINUX
 
-## SW/HW omezení typů int a float/double
+## Velikost a rozsah typů int a float/double
 
 - Standard C nespecifikuje rozsahy jednotlivých podtypů ```int```. Standard C specifikuje rozsah int typů pouze takto:
   char <= short int <= int <= long int <= long long int
@@ -120,4 +120,17 @@ popř. využít konstant v limits.h:
 ```c
 	#include <limits.h>
 	printf("Rozsah unsigned char=0..%d\n", UCHAR_MAX);
+```
+## Přetečení typů int
+```c
+    int x = 2147483648; //1<<31;
+    char z = 128;
+    printf("2^31 = %d\n", x); //chyba - kvůli přetečení, místo (+)2147483648 vytiskne -2147483648 !!!
+    printf("z = %d\n", z); // chyba - kvůli přetečení, místo (+)128 vytiskne -128 !!!
+
+```
+Jak tomu zabránit? Můžeme použít typ int s větším rozsahem: long long int
+```c
+    long long int x = 2147483648L; 
+    printf("2^32 = %lld\n", x);
 ```
