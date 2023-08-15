@@ -199,3 +199,5 @@ Domácí úkoly
 
 Vytvořte program pro výpočet kořenů kvadratické rovnice X1,2= (-b +- sqrt(D)) / 2*a
 kde D=-4*a*c
+
+Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné hodnoty.
