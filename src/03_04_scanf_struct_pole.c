@@ -17,7 +17,7 @@ int main() {
     int status, i=0;
     do {
         status = scanf("%s%d%d%d",
-                       &studenti[i].jmeno, &studenti[i].znamky[0],
+                       studenti[i].jmeno, &studenti[i].znamky[0],
                        &studenti[i].znamky[1], &studenti[i].znamky[2]);
         if (status == 4) {
             puts("OK");
