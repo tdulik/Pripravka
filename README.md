@@ -44,7 +44,8 @@ Proměnná je pojmenovaná hodnota v paměti.
 
 - Typ ```int``` reprezenuje celé číslo se znaménkem, v jazyce C má minimálně dva bajty.
 - Typ ```double``` reprezentuje číslo s desetinnou čárkou (spíše plovoucí řádková čárka, anglicky floating-point, typicky s binárním exponentem) a se znaménkem. Typicky zabíra 8 bajtů.
-  
+- pro podrobnosti viz téma "Velikost a rozsah typů int a float/double"  níže
+
 Výraz ```1 / 3``` vrací hodnotu ```0``` protože oba operandy jsou celá čísla, operace dělení je v tomto případě celočíselná.
 Naproti tomu výrazy ```1 / 3.0```, ```1.0 / 3``` nebo ```1.0 / 3.0``` vrací číslo s desetinnou čárkou, protože alespoň jeden z operandů je číslo s desetinnou čárkou.
 
@@ -123,13 +124,13 @@ popř. využít konstant v ```limits.h```:
 ```
 ## Problém přetečení typů int
 ```c
-    int x = 2147483648; //1<<31;
-    char z = 128;
+    int x = 2147483648; //2 na 31, neboli výraz ```1<<31```, tj. hodnota 1 posunutá o 31 bitů
+    char z = 128;		// 2 na 7, neboli výraz ```1<<7```
     printf("2^31 = %d\n", x); //chyba - kvůli přetečení, místo (+)2147483648 vytiskne -2147483648 !!!
     printf("z = %d\n", z); // chyba - kvůli přetečení, místo (+)128 vytiskne -128 !!!
 
 ```
-Jak tomu zabránit? Můžeme použít typ ```int``` s větším rozsahem: v případě ```x``` typ ```long long int```, v případě ```z``` např. ```unsigned char```:
+Jak přetečení zabránit? Můžeme použít typ ```int``` s větším rozsahem: v případě ```x``` typ ```long long int```, v případě ```z``` např. ```unsigned char```:
 ```c
     long long int x = 2147483648L;
     unsigned char z = 128;
@@ -153,11 +154,11 @@ f neni mensi nez f+1
 ```
 Čím to je? Počítá snad náš počítač chybně?
 
-Počítač počítá správně, ale pokud máme v exponentu 16, double obsahující velké číslo řádu 10^16 nemůžeme inkrementovat o hodnotu 1. Zkuste v tomto příkladu přičíst větší číslo - např. 100, budete mít větší úspěch. Přesto výsledek nebude přesně 10^16 + 100, ale nejbližší možná aproximace. 
+Počítač počítá správně, ale pokud máme proměnnou ```double``` obsahující velké číslo řádu 10^16,  nemůžeme takto velké číslo inkrementovat o hodnotu 1. Zkuste v tomto příkladu přičíst větší číslo - např. 100, dopadne to líp, ale výsledek stejně nebude přesně 10^16 + 100, ale nejbližší možná aproximace. 
 
 Důvod? Reprezentace floating point-u v počítači je MANTISA * 2^EXPONENT, kde MANTISA i EXPONENT mají omezený počet bitů. Kvůli tomu hodnota floating point proměnné nemůže být přesně ta hodnota, kterou my požadujeme, ale pouze aproximace žádané hodnoty. Velikost chyby mezi žádanou a uloženou hodnotou je pak úměrná velikosti výrazu 2^EXPONENT.
 
-## Zobrazení integer čísla v paměti počítače ve dvojkové soustavě
+## Příklad: zobrazení integer čísla v paměti počítače ve dvojkové soustavě
 Proměnné typu ```int``` jsou v paměti počítače uloženy jak skupina 32 jedniček a nul, které si můžeme zobrazit např. tímto kódem:
 ```c
     int cislo = 9847;
@@ -172,6 +173,24 @@ Proměnné typu ```int``` jsou v paměti počítače uloženy jak skupina 32 jed
         pocet = pocet + 1; //pocet++; nebo pocet+=1;
     }
     printf("\n");
+```
+Poznámky:
+- program snadno upravíme na tisk cifer v desítkové soustavě, stačí v kódu nahradit operace ```% 2``` a ```/ 2``` operacemi ```% 10``` a ```/ 10```
+- cifry se tisknou netradičně od nejméně významných řádů, tzn. při tisku v desítkové soustavě, číslo 9847 se vytiskne jako posloupnost 7, 4, 8, 9
+- tisk v opačném pořadí - od nejvýznamnějších řádů - vyžaduje změnu algoritmu:
+
+```c
+    int cislo = 9847;
+    int zbytek;
+    int pocet = 1;
+    int delitel=1<<30;//max. možný dělitel, pro desítkovou soustavu =1000000000;
+    while (delitel > 0) {
+        printf("%d", cislo/delitel);
+        cislo = cislo % delitel;
+        delitel = delitel / 2; //pro desítkovou soustavu: / 10
+    }
+    printf("\n");
+    return 0;
 ```
 
 ## Příklad: řešení 1 rovnice o 2 neznámých 
