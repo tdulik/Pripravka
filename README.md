@@ -228,5 +228,10 @@ Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné ho
  - [src/domaci_ukol-kvadraticka_rovnice.c](src/domaci_ukol-kvadraticka_rovnice.c) - reseni domaciho ukolu z 2. dne
  - [src/03_01_velikost_populace.c](src/03_01_velikost_populace.c) - ukázka smyčky - výpočet velikosti populace na základě zadané porodnosti po N generacích
  - [src/03_02-ukazka_pole.c](src/03_02-ukazka_pole.c) - Ukázka práce s polem vč. porovnání prvků
-- [src/03_04_scanf_struct_pole.c](src/03_02-ukazka_pole.c) - Update 03_04_scanf_struct_pole.c, [src/03_04_data.csv](src/03_02-ukazka_pole.c) - priklad souboru pro 03_04_scanf_struct_pole.c
 - [src/03_03_scanf_a_2D_pole.c](src/03_02-ukazka_pole.c) - demo scanf s 2D polem
+- [src/03_04_scanf_struct_pole.c](src/03_02-ukazka_pole.c) - Update 03_04_scanf_struct_pole.c, [src/03_04_data.csv](src/03_02-ukazka_pole.c) - priklad souboru pro 03_04_scanf_struct_pole.c
+
+# 4.den - struct znova a jednodušeji, funkce, úvod do ukazatelů
+- [src/04_01_struct_student.c] - struktury ještě jednou, jednodušeji
+- [src/04_02_struct_complex.c] - další příklad - struct pro komplexní čísla, úvod do funkcí
+- [src/04_03_funkce-ukazky.c] - Ukázka základní tvorby funkcí
