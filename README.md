@@ -220,5 +220,7 @@ Vytvořte program pro výpočet kořenů kvadratické rovnice X1,2= (-b +- sqrt(
 kde D=-4*a*c
 
 Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné hodnoty.
+
 # 3.den - pole, struct
-Viz soubory src/03_....
+ - src/03_01_velikost_populace.c -ukázka smyčky - výpočet velikosti populace na základě zadané porodnosti po N generacích
+ - 
