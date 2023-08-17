@@ -232,6 +232,6 @@ Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné ho
 - [src/03_04_scanf_struct_pole.c](src/03_02-ukazka_pole.c) - Update 03_04_scanf_struct_pole.c, [src/03_04_data.csv](src/03_02-ukazka_pole.c) - priklad souboru pro 03_04_scanf_struct_pole.c
 
 # 4.den - struct znova a jednodušeji, funkce, úvod do ukazatelů
-- [src/04_01_struct_student.c] - struktury ještě jednou, jednodušeji
-- [src/04_02_struct_complex.c] - další příklad - struct pro komplexní čísla, úvod do funkcí
-- [src/04_03_funkce-ukazky.c] - Ukázka základní tvorby funkcí
+- [src/04_01_struct_student.c](src/04_01_struct_student.c) - struktury ještě jednou, jednodušeji
+- [src/04_02_struct_complex.c](src/04_02_struct_complex.c) - další příklad - struct pro komplexní čísla, úvod do funkcí
+- [src/04_03_funkce-ukazky.c](src/04_03_funkce-ukazky.c) - Ukázka základní tvorby funkcí
