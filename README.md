@@ -222,5 +222,9 @@ kde D=-4*a*c
 Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné hodnoty.
 
 # 3.den - pole, struct
- - [src/03_01_velikost_populace.c](src/03_01_velikost_populace.c) -ukázka smyčky - výpočet velikosti populace na základě zadané porodnosti po N generacích
- - 
+ - [src/03_01_velikost_populace.c](src/03_01_velikost_populace.c) - ukázka smyčky - výpočet velikosti populace na základě zadané porodnosti po N generacích
+ - [src/domaci_ukol-kvadraticka_rovnice.c](src/domaci_ukol-kvadraticka_rovnice.c) - reseni domaciho ukolu z 2. dne
+ - 03_02-ukazka_pole.c - Ukázka práce s polem vč. porovnání prvků
+- 03_03_scanf_a_2D_pole.c - demo scanf s 2D polem
+- 03_04_data.csv - Priklad souboru pro 03_04_scanf_struct_pole.c
+- 03_04_scanf_struct_pole.c - Update 03_04_scanf_struct_pole.c
