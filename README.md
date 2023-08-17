@@ -34,6 +34,9 @@ Poznámka: V pc učebně je funkční jen Visual Studio 2019, verze 2022 nefungu
 	- čtvrtá hodina.
 - 14:00 Konec.
 
+## Literatura
+- [Pavel Herout - Učebnice jazyka C](https://www.kopp.cz/607-ucebnice-jazyka-c) - naprostá klasika, nejlepší tištěná učebnice. Ve Zlíně ji mívají skladem v prodejně ANSA knihy, popř. si ji můžete objednat v eshopech. Pirátské verze na internetu bývají ze starších verzí/vydání, ale pro začátečníky stačí.
+- [http://sallyx.org/sally/c/](http://sallyx.org/sally/c/) - velmi pěkný materiál včetně české nápovědy ke knihovnám a funkcím C!
 ## Proměnná a její adresa
 
 Operátor ```&```  vraci adresu promenne, například ```&x```.
