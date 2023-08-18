@@ -24,6 +24,8 @@ int * generujPoleIntegeru(int pocet) {  //2. ukazka pouziti ukazatelu pro vracen
 int main() {
     char ahoj[]="Ahoj svete\n";
     puts(usekniOdradkovani(ahoj));
+    int * poleIntegeru=generujPoleIntegeru(10);
+    
     char * uk=malloc(3000000);
     int * ukInt = malloc(1000 * sizeof (int));
 
