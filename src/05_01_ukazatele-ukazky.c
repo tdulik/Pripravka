@@ -3,7 +3,27 @@
 
 // char ret[250000000]="Ahoj svete"; // FUJ!!! Vytvoří EXE soubor 250 MB velký
 
+char * usekniOdradkovani(char ret[]) { //ukazka pouziti ukazatelu pro vraceni poli
+    for (int i=0; ret[i] != 0; i++) {
+        if (ret[i]=='\n') {
+            ret[i]=0;
+            break;
+        }
+    }
+    return ret;
+}
+
+int * generujPoleIntegeru(int pocet) {  //2. ukazka pouziti ukazatelu pro vraceni poli
+    int * uk =  malloc(pocet * sizeof (int));
+    for (int i=0; i<pocet; i++) {
+        uk[i] = rand(); // rand() generuje nahodna cisla integer
+    }
+    return uk;
+}
+
 int main() {
+    char ahoj[]="Ahoj svete\n";
+    puts(usekniOdradkovani(ahoj));
     char * uk=malloc(3000000);
     int * ukInt = malloc(1000 * sizeof (int));
 
