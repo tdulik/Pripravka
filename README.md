@@ -186,17 +186,21 @@ Poznámky:
 - tisk v opačném pořadí - od nejvýznamnějších řádů - vyžaduje změnu algoritmu:
 
 ```c
-    int cislo = 9847;
-    int zbytek;
+    unsigned cislo = 9847;
+    unsigned int zbytek;
     int pocet = 1;
-    int delitel=1<<30;//max. možný dělitel, pro desítkovou soustavu =1000000000;
-    while (delitel > 0) {
-        printf("%d", cislo/delitel);
-        cislo = cislo % delitel;
-        delitel = delitel / 2; //pro desítkovou soustavu: / 10
+    unsigned nejvyssi= (1<<31);
+    while (cislo != 0) {
+        zbytek = cislo & nejvyssi; // to same jako cislo % 2
+        zbytek = zbytek!=0;
+        cislo = cislo << 1; // to same jako cislo / 2
+        //printf("%d.cifra:%d\n", pocet++, zbytek);
+        printf("%d", zbytek);
+
+        pocet = pocet + 1; //pocet++; nebo pocet+=1;
     }
     printf("\n");
-    return 0;
+}
 ```
 
 ## Příklad: řešení 1 rovnice o 2 neznámých 
