@@ -213,7 +213,7 @@ Poznámky:
     printf("define b:");
     scanf_s("%lf", &b);
     while (x <= 100) {
-        y = sqrt((a * x) / b);
+        y = - a * x / b;
         printf("%lf\t%lf\n", x, y);
         x++;
     }
