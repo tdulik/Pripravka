@@ -95,15 +95,8 @@ scanf_s("%lf", &x);
 Příkazy ```printf``` a ```scanf_s``` jsou deklarované v hlavičkovém souboru **stdio.h**.
  
 ---
-Domácí úkoly
-
-1. Zadejte hodnoty tří celých čísel a vypište jejich průměr.
-
----
-Poznámky
-
-- UNIX -> LINUX
-# 2. den
+# 1. den
+ - [src/t2-01-porovnani_poli.c] - Ukázka práce s polem vč. dynamické alokace
 ## Velikost a rozsah typů int a float/double
 
 - Standard C nespecifikuje rozsahy jednotlivých podtypů ```int```. Standard C specifikuje rozsah ```int``` typů pouze takto:
@@ -228,6 +221,11 @@ Vytvořte program pro výpočet kořenů kvadratické rovnice X1,2= (-b +- sqrt(
 kde D=-4*a*c
 
 Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné hodnoty.
+
+
+# 2. den
+ - [src/t2-02-csv_soubor.c] - Ukázka práce se soubory 
+
 
 # 3.den - pole, struct
  - [src/domaci_ukol-kvadraticka_rovnice.c](src/domaci_ukol-kvadraticka_rovnice.c) - reseni domaciho ukolu z 2. dne
