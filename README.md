@@ -191,12 +191,10 @@ Poznámky:
     int pocet = 1;
     unsigned nejvyssi= (1<<31);
     while (cislo != 0) {
-        zbytek = cislo & nejvyssi; // to same jako cislo % 2
-        zbytek = zbytek!=0;
+        zbytek = (cislo & nejvyssi) != 0; // zjištění hodnoty nejvyššího bitu
         cislo = cislo << 1; // to same jako cislo * 2
-        //printf("%d.cifra:%d\n", pocet++, zbytek);
         printf("%d", zbytek);
-
+	//printf("%d.cifra:%d\n", pocet++, zbytek); // pouze pro ladění
         pocet = pocet + 1; //pocet++; nebo pocet+=1;
     }
     printf("\n");
