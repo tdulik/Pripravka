@@ -96,7 +96,7 @@ Příkazy ```printf``` a ```scanf_s``` jsou deklarované v hlavičkovém souboru
  
 ---
 # 1. den
- - [src/t2-01-porovnani_poli.c] - Ukázka práce s polem vč. dynamické alokace
+ - [src/t2-01-porovnani_poli.c](src/t2-01-porovnani_poli.c) - Ukázka práce s polem vč. dynamické alokace
 ## Velikost a rozsah typů int a float/double
 
 - Standard C nespecifikuje rozsahy jednotlivých podtypů ```int```. Standard C specifikuje rozsah ```int``` typů pouze takto:
@@ -224,7 +224,7 @@ Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné ho
 
 
 # 2. den
- - [src/t2-02-csv_soubor.c] - Ukázka práce se soubory 
+ - [src/t2-02-csv_soubor.c](src/t2-02-csv_soubor.c) - Ukázka práce se soubory 
 
 
 # 3.den - pole, struct
