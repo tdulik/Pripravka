@@ -193,7 +193,7 @@ Poznámky:
     while (cislo != 0) {
         zbytek = cislo & nejvyssi; // to same jako cislo % 2
         zbytek = zbytek!=0;
-        cislo = cislo << 1; // to same jako cislo / 2
+        cislo = cislo << 1; // to same jako cislo * 2
         //printf("%d.cifra:%d\n", pocet++, zbytek);
         printf("%d", zbytek);
 
