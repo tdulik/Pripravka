@@ -230,6 +230,8 @@ Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné ho
 # 3.den - pole, struct
 - [src/t2-03-csv_soubor-strtod.c](src/t2-03-csv_soubor-strtod.c) - vylepšení příklad s načítáním CSV o detekci chyb pomocí fce strtod = vysvětlení použití ukazatelů v parametrech funkcí.
 - [src/t2-03-ukazatele-generovani_retezcu.c](src/t2-03-ukazatele-generovani_retezcu.c) - Ukázka práce s ukazateli, generování náhodných řetězců atd.
+- [src/t2-03-porovnej-jako_strcmp.c](src/t2-03-porovnej-jako_strcmp.c) - Ukázka práce s ukazateli, generování náhodných řetězců atd.
+
 
 ##2023
  - [src/domaci_ukol-kvadraticka_rovnice.c](src/domaci_ukol-kvadraticka_rovnice.c) - reseni domaciho ukolu z 2. dne
