@@ -97,7 +97,7 @@ Příkazy ```printf``` a ```scanf_s``` jsou deklarované v hlavičkovém souboru
 ---
 # 1. den
  - [src/t2-01-porovnani_poli.c](src/t2-01-porovnani_poli.c) - Ukázka práce s polem vč. dynamické alokace
-## Velikost a rozsah typů int a float/double
+## 2023: Velikost a rozsah typů int a float/double
 
 - Standard C nespecifikuje rozsahy jednotlivých podtypů ```int```. Standard C specifikuje rozsah ```int``` typů pouze takto:
   ```char <= short int <= int <= long int <= long long int```
@@ -157,7 +157,7 @@ Počítač počítá správně, ale pokud máme proměnnou ```double``` obsahuj�
 
 Důvod? Reprezentace floating point-u v počítači je MANTISA * 2^EXPONENT, kde MANTISA i EXPONENT mají omezený počet bitů. Kvůli tomu hodnota floating point proměnné nemůže být přesně ta hodnota, kterou my požadujeme, ale pouze aproximace žádané hodnoty. Velikost chyby mezi žádanou a uloženou hodnotou je pak úměrná velikosti výrazu 2^EXPONENT.
 
-## Příklad: zobrazení integer čísla v paměti počítače ve dvojkové soustavě
+## 2023 - Příklad: zobrazení integer čísla v paměti počítače ve dvojkové soustavě
 Proměnné typu ```int``` jsou v paměti počítače uloženy jak skupina 32 jedniček a nul, které si můžeme zobrazit např. tímto kódem:
 ```c
     int cislo = 9847;
@@ -228,6 +228,10 @@ Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné ho
 
 
 # 3.den - pole, struct
+- [src/t2-03-csv_soubor-strtod.c](src/t2-03-csv_soubor-strtod.c) - vylepšení příklad s načítáním CSV o detekci chyb pomocí fce strtod = vysvětlení použití ukazatelů v parametrech funkcí.
+- [src/t2-03-ukazatele-generovani_retezcu.c](src/t2-03-ukazatele-generovani_retezcu.c) - Ukázka práce s ukazateli, generování náhodných řetězců atd.
+
+##2023
  - [src/domaci_ukol-kvadraticka_rovnice.c](src/domaci_ukol-kvadraticka_rovnice.c) - reseni domaciho ukolu z 2. dne
  - [src/03_01_velikost_populace.c](src/03_01_velikost_populace.c) - ukázka smyčky - výpočet velikosti populace na základě zadané porodnosti po N generacích
  - [src/03_02-ukazka_pole.c](src/03_02-ukazka_pole.c) - Ukázka práce s polem vč. porovnání prvků
@@ -235,6 +239,7 @@ Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné ho
 - [src/03_04_scanf_struct_pole.c](src/03_02-ukazka_pole.c) - Update 03_04_scanf_struct_pole.c, [src/03_04_data.csv](src/03_02-ukazka_pole.c) - priklad souboru pro 03_04_scanf_struct_pole.c
 
 # 4.den - struct znova a jednodušeji, funkce, úvod do ukazatelů
+##2023
 - [src/04_01_struct_student.c](src/04_01_struct_student.c) - struktury ještě jednou, jednodušeji
 - [src/04_02_struct_complex.c](src/04_02_struct_complex.c) - další příklad - struct pro komplexní čísla, úvod do funkcí
 - [src/04_03_funkce-ukazky.c](src/04_03_funkce-ukazky.c) - Ukázka tvorby funkcí. Předávání parametrů, návratových hodnot. Ukazatele v parametrech - úvod do ukazatelů.
