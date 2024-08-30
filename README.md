@@ -233,15 +233,20 @@ Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné ho
 - [src/t2-03-porovnej-jako_strcmp.c](src/t2-03-porovnej-jako_strcmp.c) - Ukázka práce s ukazateli, generování náhodných řetězců atd.
 
 
-##2023
+## 2023
  - [src/domaci_ukol-kvadraticka_rovnice.c](src/domaci_ukol-kvadraticka_rovnice.c) - reseni domaciho ukolu z 2. dne
  - [src/03_01_velikost_populace.c](src/03_01_velikost_populace.c) - ukázka smyčky - výpočet velikosti populace na základě zadané porodnosti po N generacích
  - [src/03_02-ukazka_pole.c](src/03_02-ukazka_pole.c) - Ukázka práce s polem vč. porovnání prvků
 - [src/03_03_scanf_a_2D_pole.c](src/03_02-ukazka_pole.c) - demo scanf s 2D polem
 - [src/03_04_scanf_struct_pole.c](src/03_02-ukazka_pole.c) - Update 03_04_scanf_struct_pole.c, [src/03_04_data.csv](src/03_02-ukazka_pole.c) - priklad souboru pro 03_04_scanf_struct_pole.c
 
-# 4.den - struct znova a jednodušeji, funkce, úvod do ukazatelů
-##2023
+# 4.den - struct a ukazatele na struct
+ - [src/t2-04-complex.c](src/t2-04-complex.c) - komplexní čísla
+ - [src/t2-04-complex-bitovy_registr.c](src/t2-04-complex-bitovy_registr.c) - ukázka struct pro implementaci bitového registru
+ - [src/t2-04-struct-csv-qsort.c](src/t2-04-struct-csv-qsort.c) - Načtení studentů z CSV do pole structur a řazení pomocí qsort
+ - [src/t2-04-List.c](src/t2-04-List.c) - Linked list
+
+## 2023
 - [src/04_01_struct_student.c](src/04_01_struct_student.c) - struktury ještě jednou, jednodušeji
 - [src/04_02_struct_complex.c](src/04_02_struct_complex.c) - další příklad - struct pro komplexní čísla, úvod do funkcí
 - [src/04_03_funkce-ukazky.c](src/04_03_funkce-ukazky.c) - Ukázka tvorby funkcí. Předávání parametrů, návratových hodnot. Ukazatele v parametrech - úvod do ukazatelů.
