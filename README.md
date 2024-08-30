@@ -245,3 +245,6 @@ Diskriminant otestujte pomocí if, abyste nepočítali odmocninu ze záporné ho
 - [src/04_01_struct_student.c](src/04_01_struct_student.c) - struktury ještě jednou, jednodušeji
 - [src/04_02_struct_complex.c](src/04_02_struct_complex.c) - další příklad - struct pro komplexní čísla, úvod do funkcí
 - [src/04_03_funkce-ukazky.c](src/04_03_funkce-ukazky.c) - Ukázka tvorby funkcí. Předávání parametrů, návratových hodnot. Ukazatele v parametrech - úvod do ukazatelů.
+
+# 5.den - zpracování databáze českých jmen
+- [src/Czech_names/t2-05-jmena_v_CR.c](src/Czech_names/t2-05-jmena_v_CR.c) - Načítání příjmení a jejich četností výskytů z [src/Czech_names/t2-05-jmena_v_CR.csv](src/Czech_names/t2-05-jmena_v_CR.csv), viz [src/Czech_names/](src/Czech_names/)
