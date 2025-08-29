@@ -1,6 +1,6 @@
 # Letní programátorská přípravka 2025
 Příklady viz
-[https://github.com/tdulik/Pripravka/tree/main/src/2025]
+[src/2025](src/2025)
 
 ## Jak povolit dialog "Program přestal pracovat" ve Windows 10 a 11
 [https://superuser.com/questions/1246626/is-it-by-design-that-windows-10-no-longer-displays-app-has-stopped-working-d/1349113#1349113](https://superuser.com/questions/1246626/is-it-by-design-that-windows-10-no-longer-displays-app-has-stopped-working-d/1349113#1349113)
