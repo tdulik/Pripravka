@@ -4,8 +4,8 @@
 #include <string.h>
 
 int porovnejPismeno (const void *a, const void *b) {
-    char* uk1 = a;
-    char* uk2 = b;
+    const char* uk1 = a;
+    const char* uk2 = b;
     return *uk1 - *uk2;
 }
 int main(void) {
@@ -13,7 +13,8 @@ int main(void) {
     int kapacita = 50000000;
     char **slova = (char **) malloc(kapacita * sizeof(char *));
     int *cetnost = (int *) malloc(kapacita * sizeof(int *));
-    unsigned long *hashcodes = (int *) malloc(kapacita * sizeof(int *)); // pro hledani anagramu
+    char **slovaSerazena = (char **) malloc(kapacita * sizeof(char *));
+    unsigned long *hashcodes = malloc(kapacita * sizeof(int *)); // pro hledani anagramu
 
     int slovacount = 0;
     unsigned char slovo[10000];
@@ -23,12 +24,13 @@ int main(void) {
         unsigned long int soucet=0, soucin=1, hash = 0;
         for (i = 0; slovo[i] != 0; i++) {
             //odstraneni interpunkce
-            soucet += slovo[i];
-            soucin *= slovo[i];
+
             if (ispunct(slovo[i])) {
                 slovo[i] = 0;
                 break;
             }
+            soucet += slovo[i];
+            soucin *= slovo[i];
         }
         hash=soucin+soucet;
         for (i = 0; i < slovacount; i++) {
@@ -39,24 +41,28 @@ int main(void) {
             }
         }
         if (i == slovacount) {
+            int delka= strlen(slovo);
             //toto slovo neni jeste v databazi
-            char *uk = (char *) malloc(strlen(slovo) + 1);
+            char *uk = (char *) malloc(delka + 1);
             slova[i] = uk;
             strcpy(slova[i], slovo);
+            qsort(slovo, delka, sizeof(char), porovnejPismeno);
+            char *uk2 = (char *) malloc(strlen(slovo) + 1);
+            slovaSerazena[i] = uk2;
+            strcpy(slovaSerazena[i], slovo);
             cetnost[i] = 1;
             hashcodes[i] = hash;
             slovacount++;
             if (slovacount == kapacita) {
                 printf("Koncime,slovacount=%d\n", slovacount);
                 return 0;
-                break;
             }
         }
     }
     for (int i = 0; i < slovacount; i++) {
         for (int j = 0; j < slovacount - i; j++) {
-            if (cetnost[j] < cetnost[j + 1]) {
-                int temp = cetnost[j];
+            if (hashcodes[j] < hashcodes[j + 1]) {
+                unsigned long temp = cetnost[j];
                 cetnost[j] = cetnost[j + 1];
                 cetnost[j + 1] = temp;
                 temp = hashcodes[j];
@@ -66,14 +72,18 @@ int main(void) {
                 char *temp2 = slova[j];
                 slova[j] = slova[j + 1];
                 slova[j + 1] = temp2;
+
+                char *temp3 = slovaSerazena[j];
+                slovaSerazena[j] = slovaSerazena[j + 1];
+                slovaSerazena[j + 1] = temp3;
             }
         }
     }
 
     for (int i = 0; i < slovacount; i++) {
-        printf("%s;%d;%lu;", slova[i], cetnost[i], hashcodes[i]);
-        qsort(slova[i], strlen(slova[i]), sizeof(char), porovnejPismeno);
-        printf("%s\n", slova[i]);
+        printf("%s;%d;%lu;%s\n", slova[i], cetnost[i], hashcodes[i], slovaSerazena[i]);
+
+
     }
     printf("%s\n", slovo);
 }
