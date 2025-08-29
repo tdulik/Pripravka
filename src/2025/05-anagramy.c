@@ -61,7 +61,8 @@ int main(void) {
     }
     for (int i = 0; i < slovacount; i++) {
         for (int j = 0; j < slovacount - i; j++) {
-            if (hashcodes[j] < hashcodes[j + 1]) {
+            if ( hashcodes[j] < hashcodes[j + 1]) {
+//            if (strcmp(slova[j], slova[j + 1]) < 0) {
                 unsigned long temp = cetnost[j];
                 cetnost[j] = cetnost[j + 1];
                 cetnost[j + 1] = temp;
@@ -80,10 +81,11 @@ int main(void) {
         }
     }
 
-    for (int i = 0; i < slovacount; i++) {
-        printf("%s;%d;%lu;%s\n", slova[i], cetnost[i], hashcodes[i], slovaSerazena[i]);
-
+    for (int i = 0; i < slovacount-1; i++) {
+        if (strcmp(slovaSerazena[i], slovaSerazena[i + 1]) == 0) {
+            printf("%s;%d;%lu;%s\n", slova[i], cetnost[i], hashcodes[i], slovaSerazena[i]);
+            printf("%s;%d;%lu;%s\n\n", slova[i+1], cetnost[i+1], hashcodes[i+1], slovaSerazena[i+1]);
+        }
 
     }
-    printf("%s\n", slovo);
 }
