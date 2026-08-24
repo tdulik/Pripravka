@@ -1,4 +1,4 @@
-# Letní programátorská přípravka 2025
+# Letní programátorská přípravka 2026
 Příklady viz
 [src/2025](src/2025)
 
@@ -15,25 +15,24 @@ Poznámka: znak \ je vedle levé klávesy shift.
 
 ## Přihlašovací údaje k WIFI
 
-Název wifi sítě: **Programatorska_pripravka**
+Název wifi sítě: **LetniPripravka**
 
-heslo: **2023programing**
+heslo: **Programujeme!2026**
 
-## Vývojová prostředí
+## Učitelé
 
-- [Erik Král](https://fai.utb.cz/contacts/ing-et-ing-erik-kral-ph-d/) používá [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/).
-- [Tomáš Dulík](https://fai.utb.cz/contacts/ing-tomas-dulik-ph-d/) používá Eclipse, [Codelite](https://codelite.org/) nebo [Clion](https://www.jetbrains.com/clion/).
+- 1. týden výuky: [Erik Král](https://fai.utb.cz/contacts/ing-et-ing-erik-kral-ph-d/), obsah z 2026 viz https://github.com/ekral/FAI/tree/master/Pripravka/2026 používá [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/).
+- 2. týden: [Tomáš Dulík](https://fai.utb.cz/contacts/ing-tomas-dulik-ph-d/) používá Eclipse, [Codelite](https://codelite.org/) a [Clion](https://www.jetbrains.com/clion/).
 
-Poznámka: V pc učebně je funkční jen Visual Studio 2019, verze 2022 nefunguje.
 
 ## Organizace kurzu
 
-- 9:00 První blog výuky:
+- 9:00 První blok výuky:
 	- první hodina,
 	- přestávka na kávu 10-15 minut,
 	- druhá hodina.
 - 11:00 Obědová přestávka (60 minut).
-- 12:00 Druhý blog výuky:
+- 12:00 Druhý blok výuky:
 	- třetí hodina,
 	- přestávka na kávu 10-15 minut,
 	- čtvrtá hodina.
