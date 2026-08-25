@@ -21,21 +21,37 @@ int main(void) {
     while (fgets(line, sizeof(line), vstup) != NULL) {
 
         sscanf(line, "%[^;];", zaznamy[i].prijmeni);
-        printf("%s\n", zaznamy[i].prijmeni);
         int delka=strlen(zaznamy[i].prijmeni);
         char * ret = line + delka+1;
-        //printf("%s\n", ret);
+        // printf("%s: ", zaznamy[i].prijmeni);
         for (int j=0; j<120; j++) {
             int pocet=0;
             char pocetRet[20];
             sscanf(ret, "%[^;];", pocetRet);
             pocet=atoi(pocetRet);
+            if (pocet>0) {
+            //    printf("%d: %d, ", 1899+j, pocet);
+            }
             int d=strlen(pocetRet);
             ret=ret + d+1;
             zaznamy[i].pocetProRokNarozeni[j]=pocet;
-            if (ret[0]=0 || isspace(ret[0])) break;
+            if (ret[0]==0 || isspace(ret[0])) break;
         }
         i++;
+    }
+    int pocet=i;
+    char hledanePrijmeni[200];
+    printf("Ktere prijmeni vas zajima?");
+    while (scanf("%s", hledanePrijmeni) != EOF) {
+        for (int i=0; i<pocet; i++) {
+            if (strcmpi(hledanePrijmeni, zaznamy[i].prijmeni) == 0) {
+                for (int j=0; j<120; j++) {
+                    if (zaznamy[i].pocetProRokNarozeni[j]>0)
+                        printf("%d: %d, ", 1899+j, zaznamy[i].pocetProRokNarozeni[j]);
+                }
+            }
+        }
+        printf("\nKtere prijmeni vas zajima?");
     }
     return 0;
 }
