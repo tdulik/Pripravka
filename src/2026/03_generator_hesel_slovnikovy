@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+int main(int argc, const char *argv[]) {
+    FILE *vstup = fopen("czech_words.txt", "r");
+    if (vstup == NULL) {
+        printf("Error opening file czech_words.txt\n");
+        return -1;
+    }
+    const int DEFAULT_POCET = 5;
+    int pocetSlov = DEFAULT_POCET;
+    if (argc > 1)
+        pocetSlov = atoi(argv[1]);
+    int DEFAULT_POCET_SPECIAL = 6;
+    if (argc > 2)
+        DEFAULT_POCET_SPECIAL = atoi(argv[2]);
+    const int DEFAULT_POCET_HESEL = 10;
+    printf("Generator hesel!\n");
+    static char slovnik[600000][20];
+    int i = 0;
+    while (fscanf(vstup, "%s", slovnik[i]) != EOF) {
+        if (strlen(slovnik[i]) < 7) {
+            i++;
+            if (i > 599999) {
+                printf("Koncim se ctenim, uz nemam misto...\n");
+                break; //ukonceni smycky while
+            }
+        }
+    }
+
+
+    char specialni[] = "!?-=;:/+*()%";
+    printf("Velikost slovniku=%d\n", i);
+    int pocet = i; // sizeof(slovnik) / sizeof(slovnik[0]);
+    int pocetSpecial;
+    srand(time(NULL));
+    int delkaSpecialni = sizeof(specialni) / sizeof(specialni[0]) - 1;
+    for (int j = 0; j < DEFAULT_POCET_HESEL; j++) {
+        pocetSpecial = DEFAULT_POCET_SPECIAL;
+        for (int i = 0; i < pocetSlov; i++) {
+            int r = rand() * rand() % pocet;
+            printf("%s", slovnik[r]);
+            if (pocetSpecial-- > 0)
+                printf("%c", specialni[rand() % delkaSpecialni]);
+        }
+        while (pocetSpecial-- > 0)
+            printf("%c", specialni[rand() % delkaSpecialni]);
+        printf("\n");
+    }
+    return 0;
+}
