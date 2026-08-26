@@ -54,7 +54,7 @@ int main(void) {
     printf("Ktere prijmeni vas zajima?");
     while (scanf("%s", hledanePrijmeni) != EOF) {
         for (int i=0; i<pocet; i++) {
-            if (strcmpi(hledanePrijmeni, zaznamy[i].prijmeni) == 0 || strstr(zaznamy[i].prijmeni, hledanePrijmeni) != NULL) {
+            if (strstr(zaznamy[i].prijmeni, hledanePrijmeni) != NULL) {
                 printf("\n%s:==================\n", zaznamy[i].prijmeni);
                 for (int j=0; j<120; j++) {
                     if (zaznamy[i].pocetProRokNarozeni[j]>0)
