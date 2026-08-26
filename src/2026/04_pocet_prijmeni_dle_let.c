@@ -2,13 +2,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+/* pro SetConsoleOutputCP(CP_UTF8) je potřeba:
+#ifdef _WIN32
+#include <windows.h>
+#endif
+*/
 typedef struct {
     char prijmeni[100];
     int pocetProRokNarozeni[120];
 } tZaznam;
 
 int main(void) {
+#ifdef _WIN32
+    //SetConsoleOutputCP(CP_UTF8); // Ve Windows musíme konzolu nastavit na UTF8. Alternativa:
+    system("chcp 65001 > nul");
+    //test:
+    //printf("Příliš žluťoučký kůň úpěl ďábelské ódy.\n");
+#endif
     printf("Pocet prijmeni narozenych v danem roce:\n");
     FILE * vstup = fopen("t2-05-jmena_v_CR.csv", "r");
     if (vstup == NULL) {
@@ -44,10 +54,11 @@ int main(void) {
     printf("Ktere prijmeni vas zajima?");
     while (scanf("%s", hledanePrijmeni) != EOF) {
         for (int i=0; i<pocet; i++) {
-            if (strcmpi(hledanePrijmeni, zaznamy[i].prijmeni) == 0) {
+            if (strcmpi(hledanePrijmeni, zaznamy[i].prijmeni) == 0 || strstr(zaznamy[i].prijmeni, hledanePrijmeni) != NULL) {
+                printf("\n%s:==================\n", zaznamy[i].prijmeni);
                 for (int j=0; j<120; j++) {
                     if (zaznamy[i].pocetProRokNarozeni[j]>0)
-                        printf("%d: %d, ", 1899+j, zaznamy[i].pocetProRokNarozeni[j]);
+                        printf("%d: %d, ", 1898+j, zaznamy[i].pocetProRokNarozeni[j]);
                 }
             }
         }
