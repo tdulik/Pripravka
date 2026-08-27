@@ -3,13 +3,26 @@
 #include <stdlib.h>
 #include <string.h>
 
+int fget_words(FILE *f, char str[]) {
+    int c, i=0;
+    while ((c=fgetc(f)) != EOF && c!='\n') {
+        if (!isspace(c))
+            str[i++] = tolower(c);
+    }
+    str[i] = '\0';
+    return c;
+}
 int porovnejPismeno (const void *a, const void *b) {
     const char* uk1 = a;
     const char* uk2 = b;
     return *uk1 - *uk2;
 }
 int main(void) {
-    FILE *vstup = fopen("C:/Users/dulik/Downloads/text.txt", "r");
+    FILE *vstup = fopen("text.txt", "r");
+    if (vstup==NULL) {
+        printf("Error opening file..\n");
+        return -1;
+    }
     int kapacita = 50000000;
     char **slova = (char **) malloc(kapacita * sizeof(char *));
     int *cetnost = (int *) malloc(kapacita * sizeof(int *));
@@ -18,8 +31,9 @@ int main(void) {
 
     int slovacount = 0;
     unsigned char slovo[10000];
-    printf("%s\n", slovo);
-    while (fscanf(vstup, "%s", slovo) != EOF) {
+    int status;
+    char terminator;
+    while ( fget_words(vstup, slovo)!=EOF) {//(status=fscanf(vstup, " %[^\n]%c", slovo, &terminator)) != EOF) {
         int i;
         unsigned long int soucet=0, soucin=1, hash = 0;
         for (i = 0; slovo[i] != 0; i++) {
@@ -40,6 +54,7 @@ int main(void) {
                 break;
             }
         }
+        if (i%10000==0) printf("Nacitani %d. slova\n", i);
         if (i == slovacount) {
             int delka= strlen(slovo);
             //toto slovo neni jeste v databazi
@@ -62,7 +77,6 @@ int main(void) {
     for (int i = 0; i < slovacount; i++) {
         for (int j = 0; j < slovacount - i; j++) {
             if ( hashcodes[j] < hashcodes[j + 1]) {
-//            if (strcmp(slova[j], slova[j + 1]) < 0) {
                 unsigned long temp = cetnost[j];
                 cetnost[j] = cetnost[j + 1];
                 cetnost[j + 1] = temp;
